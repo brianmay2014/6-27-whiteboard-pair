@@ -120,3 +120,18 @@ function fibsSum(n) {
 }
 
 console.log(fibsSum(4));
+
+
+
+// fibsSum(5) // n = 5
+
+// fibsSum(4)                                                                   + fibSum (3)                         + 1
+
+// fibSum(3)                        + fibsSumsum(2) + 1                      fibSum(2) + fibSum(1) + 1
+
+// fibSum(2) + fibSum(1) + 1                   2 + 1                               2   +    1      +  1     
+
+// 2 +1 +1
+
+// 2+1+1 + 2 + 1 + 2 + 1 + 1 + 1 
+
