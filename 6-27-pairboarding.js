@@ -3,21 +3,19 @@
 // Keep repeating until there is only one digit in the result, called the "digital root".
 // Do not use string conversion within your method.
 
-
-
 // 2136 => 2 + 1 + 3 + 6 => 12
 
 // function digitalRoot(num) {
 //   while (num > 10) {
 //       num = digitalRootStep(num); // 1235, 11, 2
 //     }
-    
+
 //     return num; //2
 // }
 
 // function digitalRootStep(num) {
 //     let root = 0;
-    
+
 //     while (num > 0) {
 //         //1235, 11
 
@@ -28,70 +26,97 @@
 //         //1, 0
 //       console.log('num', num);
 //     }
-    
+
 //     return root; //11
 //         //2
 // }
-
-
-
 
 // console.log(digitalRoot(1235)); //=> 11 => 2
 
 // console.log(digitalRoot(135)); //=> 9
 // console.log(digitalRoot(5)); //=> 5
 
+// // Write a function that takes a message and an increment amount and outputs the same
+// // letters shifted by that amount in the alphabet. Assume lowercase and no punctuation. Preserve spaces.
 
+// // a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z
+// // 3
 
+// // hello, 2 => jgnnq
 
-// Write a function that takes a message and an increment amount and outputs the same
-// letters shifted by that amount in the alphabet. Assume lowercase and no punctuation. Preserve spaces.
+// function caesarCipher(string, incr) {
 
-// a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z
-// 3
+//     // create an array with the alphabet
+//     const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
-// hello, 2 => jgnnq
+//     // create a new empty string
+//     let output = '';
 
-function caesarCipher(string, incr) {
+//     // have a for loop to iterate over the input string characters
+//     for (let i = 0; i < string.length; i++) {
+//         if (string[i] === ' ') {
+//             output += ' ';
+//         }
+//         else {
 
-    // create an array with the alphabet
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+//             // find the index of that character in the input array
+//             const oldChar = alphabet.indexOf(string[i]);
+//             // console.log('oldChar', oldChar);
 
-    // create a new empty string
-    let output = '';
+//             // add the increment to the index of current character to grab the output character
+//             let newChar = oldChar + incr;
 
-    // have a for loop to iterate over the input string characters
-    for (let i = 0; i < string.length; i++) {   
-        if (string[i] === ' ') {
-            output += ' ';
-        }
-        else {
+//             newChar = newChar % 26;
 
-            // find the index of that character in the input array
-            const oldChar = alphabet.indexOf(string[i]);
-            // console.log('oldChar', oldChar);
-            
-            // add the increment to the index of current character to grab the output character
-            let newChar = oldChar + incr;
-            
-            newChar = newChar % 26;
-            
-            // add that character to the output string
-            output += alphabet[newChar];
-        }
+//             // add that character to the output string
+//             output += alphabet[newChar];
+//         }
 
-    }
-    
-    //return newly created string
-    return output;
-    
+//     }
+
+//     //return newly created string
+//     return output;
+
+// }
+
+// console.log(caesarCipher('hello', 2));
+// console.log(caesarCipher("zebra", 2));
+// console.log(caesarCipher("hello", 100));
+// console.log(caesarCipher("he llo", 26));
+// console.log(caesarCipher("", 26));
+// console.log(caesarCipher("hello welcome to career quest", 53));
+// // console.log(caesarCipher("zebra?", 2)); // => bgdtcb
+
+//---------------------------------------------------------------------------------------------
+// Write a function, fibsSum(n), that finds the sum of the first n fibonacci numbers recursively.
+// Assume n > 0. Note that for this problem, the fibonacci sequence starts with [1, 1].
+
+//8 ==> 5
+
+// function fibSum(n) {
+//   let arr = fibSeq(n);
+//   let sum = arr.reduce((ele, accum) => {
+//     return accum + ele;
+//   });
+//   return sum;
+// }
+
+// function fibSeq(n) {
+//   if (n === 1) {
+//     return 1;
+//   }
+//   if (n === 2) {
+//     return 2;
+//   }
+//   fibSeq(n - 1);
+// }
+
+// 1,1,2,3,5,8,13,21
+function fibsSum(n) {
+  if (n === 1) return 1;
+  if (n === 2) return 2;
+
+  return fibsSum(n - 1) + fibsSum(n - 2) + 1;
 }
 
-
-console.log(caesarCipher('hello', 2));
-console.log(caesarCipher("zebra", 2));
-console.log(caesarCipher("hello", 100));
-console.log(caesarCipher("he llo", 26));
-console.log(caesarCipher("", 26));
-console.log(caesarCipher("hello welcome to career quest", 53));
-// console.log(caesarCipher("zebra?", 2)); // => bgdtcb
+console.log(fibsSum(4));
